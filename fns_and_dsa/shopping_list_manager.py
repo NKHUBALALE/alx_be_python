@@ -35,20 +35,24 @@ def main():
         display_menu()
         choice = input("Enter your choice: ").strip()
 
-        if choice == '1':
-            # Prompt for and add an item
-            add_item(shopping_list)
-        elif choice == '2':
-            # Prompt for and remove an item
-            remove_item(shopping_list)
-        elif choice == '3':
-            # Display the shopping list
-            view_list(shopping_list)
-        elif choice == '4':
-            print("Goodbye!")
-            break
+        if choice.isdigit():
+            choice = int(choice)
+            if choice == 1:
+                # Prompt for and add an item
+                add_item(shopping_list)
+            elif choice == 2:
+                # Prompt for and remove an item
+                remove_item(shopping_list)
+            elif choice == 3:
+                # Display the shopping list
+                view_list(shopping_list)
+            elif choice == 4:
+                print("Goodbye!")
+                break
+            else:
+                print("Invalid choice. Please enter a number between 1 and 4.")
         else:
-            print("Invalid choice. Please try again.")
+            print("Invalid input. Please enter a number.")
 
 if __name__ == "__main__":
     main()
